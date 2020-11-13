@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @keyframes fade-out {
+        from {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .example {
+        flex: 1 1 0;
+        animation-name: fade-in;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+      }
+
+      .example.fade-out {
+        animation-name: fade-out;
+        animation-fill-mode: forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="example" id="example">I will have a fade effect</h1>
+
+    <button>Fade Out</button>
+    <script>
+      let isVisible = true;
+      document.querySelector("button").onclick = function () {
+        if (isVisible) {
+          document.querySelector("#example").classList.add("fade-out");
+          this.innerHTML = "Fade In";
+        } else {
+          document.querySelector("#example").classList.remove("fade-out");
+          this.innerHTML = "Fade Out";
+        }
+
+        isVisible = !isVisible;
+      };
+    </script>
+  </body>
+</html>
